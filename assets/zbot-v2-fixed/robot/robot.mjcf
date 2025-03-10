@@ -72,21 +72,17 @@
       <geom name="Z-BOT2_MASTER-BODY-SKELETON_collision" type="mesh" mesh="Z-BOT2_MASTER-BODY-SKELETON.collision.stl" class="collision" />
       <geom name="Z-BOT2_MASTER-BODY-SKELETON_visual" material="Z-BOT2_MASTER-BODY-SKELETON_material" type="mesh" mesh="Z-BOT2_MASTER-BODY-SKELETON.stl" class="visual" />
       <body name="Z-BOT2-MASTER-SHOULDER2" pos="0.060002 -0.011000 -0.010001" quat="0.0005633121735972125 0.0005628637715330792 -0.7068249569936026 -0.707388044876899">
-        <joint name="left_shoulder_yaw" type="hinge" range="-1.047198 0" axis="0 0 1" />
         <inertial pos="-0.012788 0.001374 0.018800" mass="0.024098" diaginertia="7e-06 8e-06 3e-06" />
         <geom name="Z-BOT2-MASTER-SHOULDER2_visual" material="Z-BOT2-MASTER-SHOULDER2_material" type="mesh" mesh="Z-BOT2-MASTER-SHOULDER2.stl" class="visual" />
         <body name="3215_1Flange" pos="-0.020845 -0.004900 0.018800" quat="0.5000001633974483 -0.4999999999999733 0.49999983660255165 -0.4999999999999733">
-          <joint name="left_shoulder_pitch" type="hinge" range="-2.967060 3.141593" axis="0 0 1" />
           <inertial pos="0.033642 0.000438 -0.019963" mass="0.181960" diaginertia="5.4e-05 0.000228 0.000232" />
           <geom name="3215_1Flange_collision" type="mesh" mesh="3215_1Flange.collision.stl" class="collision" />
           <geom name="3215_1Flange_visual" material="3215_1Flange_material" type="mesh" mesh="3215_1Flange.stl" class="visual" />
           <body name="R-ARM-MIRROR-1" pos="0.092984 0.019800 -0.018600" quat="-1.2247452309842457e-07 -1.22474483074382e-07 0.7071066656470838 0.7071068967259713">
-            <joint name="left_elbow" type="hinge" range="-1.570796 1.570796" axis="0 0 -1" />
             <inertial pos="-0.051119 0.001150 -0.017743" mass="0.186073" diaginertia="6.1e-05 0.000218 0.000201" />
             <geom name="R-ARM-MIRROR-1_collision" type="mesh" mesh="R-ARM-MIRROR-1.collision.stl" class="collision" />
             <geom name="R-ARM-MIRROR-1_visual" material="R-ARM-MIRROR-1_material" type="mesh" mesh="R-ARM-MIRROR-1.stl" class="visual" />
             <body name="FINGER_1" pos="-0.066206 -0.011778 0.001260" quat="-9.934637848443371e-08 0.5735765089253517 0.8191519934718928 -1.418813056556475e-07">
-              <joint name="left_gripper" type="hinge" range="-0.349066 0.698132" axis="0 0 1" />
               <inertial pos="-0.010671 -0.028985 0.018800" mass="0.044318" diaginertia="2.3e-05 1e-05 1.6e-05" />
               <geom name="FINGER_1_collision" type="mesh" mesh="FINGER_1.collision.stl" class="collision" />
               <geom name="FINGER_1_visual" material="L-ARM-MIRROR_1_material" type="mesh" mesh="FINGER_1.stl" class="visual" />
@@ -95,21 +91,17 @@
         </body>
       </body>
       <body name="Z-BOT2-MASTER-SHOULDER2_2" pos="-0.060000 -0.011000 -0.010001" quat="0.7073882691671998 -0.706825181105366 0.0 0.0">
-        <joint name="right_shoulder_yaw" type="hinge" range="0 1.047198" axis="0 0 1" />
         <inertial pos="-0.012788 -0.001374 0.018800" mass="0.024098" diaginertia="7e-06 8e-06 3e-06" />
         <geom name="Z-BOT2-MASTER-SHOULDER2_2_visual" material="Z-BOT2-MASTER-SHOULDER2_material" type="mesh" mesh="Z-BOT2-MASTER-SHOULDER2_2.stl" class="visual" />
         <body name="3215_1Flange_2" pos="-0.020845 0.004900 0.018800" quat="0.5000001633974483 0.4999999999999733 0.49999983660255165 0.4999999999999733">
-          <joint name="right_shoulder_pitch" type="hinge" range="-3.141593 2.967060" axis="0 0 1" />
           <inertial pos="0.033642 -0.000433 -0.019968" mass="0.181960" diaginertia="5.4e-05 0.000228 0.000232" />
           <geom name="3215_1Flange_2_collision" type="mesh" mesh="3215_1Flange_2.collision.stl" class="collision" />
           <geom name="3215_1Flange_2_visual" material="3215_1Flange_material" type="mesh" mesh="3215_1Flange_2.stl" class="visual" />
           <body name="L-ARM-MIRROR_1" pos="0.092984 -0.019800 -0.018600" quat="0.5000001633974483 -0.4999999999999733 -0.4999999999999733 -0.49999983660255165">
-            <joint name="right_elbow" type="hinge" range="-1.570796 1.570796" axis="0 0 1" />
             <inertial pos="0.001144 0.051123 0.017764" mass="0.186073" diaginertia="0.000218 6.1e-05 0.000201" />
             <geom name="L-ARM-MIRROR_1_collision" type="mesh" mesh="L-ARM-MIRROR_1.collision.stl" class="collision" />
             <geom name="L-ARM-MIRROR_1_visual" material="L-ARM-MIRROR_1_material" type="mesh" mesh="L-ARM-MIRROR_1.stl" class="visual" />
             <body name="FINGER_1_2" pos="-0.011778 0.066206 -0.001260" quat="0.9848077400232231 0.0 0.0 0.1736482513311082">
-              <joint name="right_gripper" type="hinge" range="-0.698132 0.349066" axis="0 0 1" />
               <inertial pos="-0.010671 0.028985 0.018799" mass="0.044318" diaginertia="2.3e-05 1e-05 1.6e-05" />
               <geom name="FINGER_1_2_collision" type="mesh" mesh="FINGER_1_2.collision.stl" class="collision" />
               <geom name="FINGER_1_2_visual" material="L-ARM-MIRROR_1_material" type="mesh" mesh="FINGER_1_2.stl" class="visual" />
@@ -179,14 +171,6 @@
   </worldbody>
 
   <actuator>
-    <position name="left_shoulder_yaw_ctrl" joint="left_shoulder_yaw" class="robot" />
-    <position name="left_shoulder_pitch_ctrl" joint="left_shoulder_pitch" class="robot" />
-    <position name="left_elbow_ctrl" joint="left_elbow" class="robot" />
-    <position name="left_gripper_ctrl" joint="left_gripper" class="robot" />
-    <position name="right_shoulder_yaw_ctrl" joint="right_shoulder_yaw" class="robot" />
-    <position name="right_shoulder_pitch_ctrl" joint="right_shoulder_pitch" class="robot" />
-    <position name="right_elbow_ctrl" joint="right_elbow" class="robot" />
-    <position name="right_gripper_ctrl" joint="right_gripper" class="robot" />
     <position name="left_hip_yaw_ctrl" joint="left_hip_yaw" class="robot" />
     <position name="left_hip_roll_ctrl" joint="left_hip_roll" class="robot" />
     <position name="left_hip_pitch_ctrl" joint="left_hip_pitch" class="robot" />

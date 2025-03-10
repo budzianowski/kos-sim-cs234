@@ -5,18 +5,20 @@
     <parent link="Z-BOT2_MASTER-BODY-SKELETON"/>
     <child link="IMU"/>
   </joint>
-  <joint name="left_shoulder_yaw" type="revolute">
+  <joint name="left_shoulder_yaw" type="fixed">
     <origin xyz="0.060002 -0.011000 -0.010001" rpy="1.570000 0 -3.140000"/>
     <parent link="Z-BOT2_MASTER-BODY-SKELETON"/>
     <child link="Z-BOT2-MASTER-SHOULDER2"/>
     <limit effort="2" velocity="2" lower="-1.047198" upper="0"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 1"/>
   </joint>
-  <joint name="right_shoulder_yaw" type="revolute">
+  <joint name="right_shoulder_yaw" type="fixed">
     <origin xyz="-0.060000 -0.011000 -0.010001" rpy="-1.570000 0 0"/>
     <parent link="Z-BOT2_MASTER-BODY-SKELETON"/>
     <child link="Z-BOT2-MASTER-SHOULDER2_2"/>
     <limit effort="2" velocity="2" lower="0" upper="1.047198"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 1"/>
   </joint>
   <joint name="left_hip_yaw" type="revolute">
@@ -24,6 +26,7 @@
     <parent link="Z-BOT2_MASTER-BODY-SKELETON"/>
     <child link="U-HIP-L"/>
     <limit effort="2" velocity="2" lower="-1.047198" upper="1.047198"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 1"/>
   </joint>
   <joint name="right_hip_yaw" type="revolute">
@@ -31,20 +34,23 @@
     <parent link="Z-BOT2_MASTER-BODY-SKELETON"/>
     <child link="U-HIP-R"/>
     <limit effort="2" velocity="2" lower="-1.047198" upper="1.047198"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 1"/>
   </joint>
-  <joint name="left_shoulder_pitch" type="revolute">
+  <joint name="left_shoulder_pitch" type="fixed">
     <origin xyz="-0.020845 -0.004900 0.018800" rpy="-1.570796 0 -1.570796"/>
     <parent link="Z-BOT2-MASTER-SHOULDER2"/>
     <child link="3215_1Flange"/>
     <limit effort="2" velocity="2" lower="-2.967060" upper="3.141593"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 1"/>
   </joint>
-  <joint name="right_shoulder_pitch" type="revolute">
+  <joint name="right_shoulder_pitch" type="fixed">
     <origin xyz="-0.020845 0.004900 0.018800" rpy="1.570796 0 1.570796"/>
     <parent link="Z-BOT2-MASTER-SHOULDER2_2"/>
     <child link="3215_1Flange_2"/>
     <limit effort="2" velocity="2" lower="-3.141593" upper="2.967060"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 1"/>
   </joint>
   <joint name="left_hip_roll" type="revolute">
@@ -52,6 +58,7 @@
     <parent link="U-HIP-L"/>
     <child link="3215_BothFlange_5"/>
     <limit effort="2" velocity="2" lower="-0.174533" upper="1.570796"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 -1.0"/>
   </joint>
   <joint name="right_hip_roll" type="revolute">
@@ -59,6 +66,7 @@
     <parent link="U-HIP-R"/>
     <child link="3215_BothFlange_6"/>
     <limit effort="2" velocity="2" lower="-1.570796" upper="0.174533"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 1"/>
   </joint>
   <joint name="left_hip_pitch" type="revolute">
@@ -66,6 +74,7 @@
     <parent link="3215_BothFlange_5"/>
     <child link="3215_BothFlange_9"/>
     <limit effort="2" velocity="2" lower="-1.570796" upper="1.570796"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 1"/>
   </joint>
   <joint name="right_hip_pitch" type="revolute">
@@ -73,20 +82,23 @@
     <parent link="3215_BothFlange_6"/>
     <child link="3215_BothFlange_10"/>
     <limit effort="2" velocity="2" lower="-1.570796" upper="1.570796"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 1"/>
   </joint>
-  <joint name="left_elbow" type="revolute">
+  <joint name="left_elbow" type="fixed">
     <origin xyz="0.092984 0.019800 -0.018600" rpy="1.570796 0 3.141593"/>
     <parent link="3215_1Flange"/>
     <child link="R-ARM-MIRROR-1"/>
     <limit effort="2" velocity="2" lower="-1.570796" upper="1.570796"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 -1"/>
   </joint>
-  <joint name="right_elbow" type="revolute">
+  <joint name="right_elbow" type="fixed">
     <origin xyz="0.092984 -0.019800 -0.018600" rpy="-1.570796 -1.570796 0"/>
     <parent link="3215_1Flange_2"/>
     <child link="L-ARM-MIRROR_1"/>
     <limit effort="2" velocity="2" lower="-1.570796" upper="1.570796"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 1"/>
   </joint>
   <joint name="left_knee" type="revolute">
@@ -94,6 +106,7 @@
     <parent link="3215_BothFlange_9"/>
     <child link="3215_BothFlange_13"/>
     <limit effort="2" velocity="2" lower="-1.221731" upper="2.792527"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 1"/>
   </joint>
   <joint name="right_knee" type="revolute">
@@ -101,20 +114,23 @@
     <parent link="3215_BothFlange_10"/>
     <child link="3215_BothFlange_14"/>
     <limit effort="2" velocity="2" lower="-2.792527" upper="1.221731"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 1"/>
   </joint>
-  <joint name="left_gripper" type="revolute">
+  <joint name="left_gripper" type="fixed">
     <origin xyz="-0.066206 -0.011778 0.001260" rpy="3.141593 0 1.919862"/>
     <parent link="R-ARM-MIRROR-1"/>
     <child link="FINGER_1"/>
     <limit effort="2" velocity="2" lower="-0.349066" upper="0.698132"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 1"/>
   </joint>
-  <joint name="right_gripper" type="revolute">
+  <joint name="right_gripper" type="fixed">
     <origin xyz="-0.011778 0.066206 -0.001260" rpy="0 0 0.349066"/>
     <parent link="L-ARM-MIRROR_1"/>
     <child link="FINGER_1_2"/>
     <limit effort="2" velocity="2" lower="-0.698132" upper="0.349066"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 1"/>
   </joint>
   <joint name="left_ankle" type="revolute">
@@ -122,6 +138,7 @@
     <parent link="3215_BothFlange_13"/>
     <child link="FOOT"/>
     <limit effort="2" velocity="2" lower="-1.570796" upper="1.570796"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 1"/>
   </joint>
   <joint name="right_ankle" type="revolute">
@@ -129,6 +146,7 @@
     <parent link="3215_BothFlange_14"/>
     <child link="FOOT_2"/>
     <limit effort="2" velocity="2" lower="-1.570796" upper="1.570796"/>
+    <dynamics damping="0.6" friction="0.052"/>
     <axis xyz="0 0 1"/>
   </joint>
   <link name="Z-BOT2_MASTER-BODY-SKELETON">
