@@ -107,17 +107,17 @@ async def simple_walking(
                 max_torque=actuator.max_torque,
             )
 
-        # await sim_kos.sim.reset(
-        #     pos={"x": 0.0, "y": 0.0, "z": 0.4},
-        #     quat={"x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0},
-        #     joints=[
-        #         {
-        #             "name": actuator.joint_name,
-        #             "pos": pos,
-        #         }
-        #         for actuator, pos in zip(ACTUATOR_LIST, default_position)
-        #     ],
-        # )
+        await sim_kos.sim.reset(
+            pos={"x": 0.0, "y": 0.0, "z": 0.4},
+            quat={"x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0},
+            joints=[
+                {
+                    "name": actuator.joint_name,
+                    "pos": pos,
+                }
+                for actuator, pos in zip(ACTUATOR_LIST, default_position)
+            ],
+        )
         start_time = time.time()
         end_time = None if num_seconds is None else start_time + num_seconds
 
@@ -175,7 +175,9 @@ async def simple_walking(
             # positions = policy_output["actions_scaled"]
             # curr_actions = policy_output["actions"]
             # hist_obs = policy_output["x.3"]
-            prev_actions = np.random.rand(10) # current actions
+            curr_actions = np.zeros(10)
+            prev_actions = curr_actions
+            positions = curr_actions
 
             target_q = positions + default
 

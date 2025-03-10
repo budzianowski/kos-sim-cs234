@@ -102,7 +102,7 @@ class SimulationServer:
                             await self.simulator.step()
                     await asyncio.sleep(self._sleep_time)
 
-                if num_renders % 15 == 0:
+                if num_renders % 5 == 0:
                     await self.simulator.render()
 
                 # Sleep until the next control update.
