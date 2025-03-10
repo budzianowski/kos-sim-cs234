@@ -102,7 +102,8 @@ class SimulationServer:
                             await self.simulator.step()
                     await asyncio.sleep(self._sleep_time)
 
-                await self.simulator.render()
+                if num_renders % 15 == 0:
+                    await self.simulator.render()
 
                 # Sleep until the next control update.
                 current_time = time.time()
@@ -143,6 +144,7 @@ class SimulationServer:
 
 
 async def get_model_metadata(api: K, model_name: str) -> RobotURDFMetadataOutput:
+    breakpoint()
     model_path = get_sim_artifacts_path() / model_name / "metadata.json"
     if model_path.exists():
         return RobotURDFMetadataOutput.model_validate_json(model_path.read_text())
@@ -172,12 +174,15 @@ async def serve(
     mujoco_scene: str = "smooth",
     camera: str | None = None,
 ) -> None:
-    async with K() as api:
-        model_dir, model_metadata = await asyncio.gather(
-            api.download_and_extract_urdf(model_name),
-            get_model_metadata(api, model_name),
-        )
-
+    # async with K() as api:
+    #     model_dir, model_metadata = await asyncio.gather(
+    #         api.download_and_extract_urdf(model_name),
+    #         get_model_metadata(api, model_name),
+    #     )
+    # TODO: remove this:
+    model_dir = Path("/Users/pfb30/.kscale/robots/zbot-v2-fixed/robot")
+    model_path = Path("/Users/pfb30/kos-sim/.kos-sim/zbot-v2-fixed/metadata.json")
+    model_metadata = RobotURDFMetadataOutput.model_validate_json(model_path.read_text())
     model_path = next(
         itertools.chain(
             model_dir.glob("*.mjcf"),

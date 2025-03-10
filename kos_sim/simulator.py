@@ -212,17 +212,20 @@ class MujocoSimulator:
         for name, target_command in self._current_commands.items():
             joint_id = self._joint_name_to_id[name]
             actuator_id = self._joint_id_to_actuator_id[joint_id]
-            kp = self._joint_name_to_kp[name]
-            kd = self._joint_name_to_kd[name]
-            current_position = self._data.joint(name).qpos
-            current_velocity = self._data.joint(name).qvel
-            target_torque = (
-                kp * (target_command["position"] - current_position)
-                + kd * (target_command["velocity"] - current_velocity)
-                + target_command["torque"]
-            )
-            if (max_torque := self._joint_name_to_max_torque.get(name)) is not None:
-                target_torque = np.clip(target_torque, -max_torque, max_torque)
+            # kp = self._joint_name_to_kp[name]
+            # kd = self._joint_name_to_kd[name]
+            # current_position = self._data.joint(name).qpos
+            # current_velocity = self._data.joint(name).qvel
+            # target_torque = (
+            #     kp * (target_command["position"] - current_position)
+            #     + kd * (target_command["velocity"] - current_velocity)
+            #     + target_command["torque"]
+            # )
+            # if (max_torque := self._joint_name_to_max_torque.get(name)) is not None:
+            #     target_torque = np.clip(target_torque, -max_torque, max_torque)
+            # TODO test it
+            # position control
+            target_torque = target_command["position"]
             logger.debug("Setting ctrl for actuator %s to %f", actuator_id, target_torque)
             self._data.ctrl[actuator_id] = target_torque
 

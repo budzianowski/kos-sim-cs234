@@ -1,0 +1,133 @@
+{
+  "joint_name_to_metadata": {
+    "left_hip_pitch": {
+      "id": 31,
+      "kp": "17.8",
+      "kd": "0.0",
+      "armature": "0.028",
+      "friction": "0.052",
+      "damping": "0.6"
+    },
+    "left_shoulder_pitch": {
+      "id": 11,
+      "kp": "17.8",
+      "kd": "0.0",
+      "armature": "0.028",
+      "friction": "0.052",
+      "damping": "0.6"
+    },
+    "left_knee": {
+      "id": 34,
+      "kp": "17.8",
+      "kd": "0.0",
+      "armature": "0.028",
+      "friction": "0.052",
+      "damping": "0.6"
+    },
+    "right_hip_pitch": {
+      "id": 41,
+      "kp": "17.8",
+      "kd": "0.0",
+      "armature": "0.028",
+      "friction": "0.052",
+      "damping": "0.6"
+    },
+    "right_ankle": {
+      "id": 45,
+      "kp": "17.8",
+      "kd": "0.0",
+      "armature": "0.028",
+      "friction": "0.052",
+      "damping": "0.6"
+    },
+    "right_hip_yaw": {
+      "id": 43,
+      "kp": "17.8",
+      "kd": "0.0",
+      "armature": "0.028",
+      "friction": "0.052",
+      "damping": "0.6"
+    },
+    "right_shoulder_yaw": {
+      "id": 23,
+      "kp": "17.8",
+      "kd": "0.0",
+      "armature": "0.028",
+      "friction": "0.052",
+      "damping": "0.6"
+    },
+    "right_hip_roll": {
+      "id": 42,
+      "kp": "17.8",
+      "kd": "0.0",
+      "armature": "0.028",
+      "friction": "0.052",
+      "damping": "0.6"
+    },
+    "right_knee": {
+      "id": 44,
+      "kp": "17.8",
+      "kd": "0.0",
+      "armature": "0.028",
+      "friction": "0.052",
+      "damping": "0.6"
+    },
+    "left_shoulder_yaw": {
+      "id": 13,
+      "kp": "17.8",
+      "kd": "0.0",
+      "armature": "0.028",
+      "friction": "0.052",
+      "damping": "0.6"
+    },
+    "right_shoulder_pitch": {
+      "id": 21,
+      "kp": "17.8",
+      "kd": "0.0",
+      "armature": "0.028",
+      "friction": "0.052",
+      "damping": "0.6"
+    },
+    "right_elbow": {
+      "id": 24,
+      "kp": "17.8",
+      "kd": "0.0",
+      "armature": "0.028",
+      "friction": "0.052",
+      "damping": "0.6"
+    },
+    "left_elbow": {
+      "id": 14,
+      "kp": "17.8",
+      "kd": "0.0",
+      "armature": "0.028",
+      "friction": "0.052",
+      "damping": "0.6"
+    },
+    "left_hip_roll": {
+      "id": 32,
+      "kp": "17.8",
+      "kd": "0.0",
+      "armature": "0.028",
+      "friction": "0.052",
+      "damping": "0.6"
+    },
+    "left_hip_yaw": {
+      "id": 33,
+      "kp": "17.8",
+      "kd": "0.0",
+      "armature": "0.028",
+      "friction": "0.052",
+      "damping": "0.6"
+    },
+    "left_ankle": {
+      "id": 35,
+      "kp": "17.8",
+      "kd": "0.0",
+      "armature": "0.028",
+      "friction": "0.052",
+      "damping": "0.6"
+    }
+  },
+  "control_frequency": "50"
+}
