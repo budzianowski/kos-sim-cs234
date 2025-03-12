@@ -15,8 +15,6 @@
 
   <compiler angle="radian" meshdir="meshes" />
 
-  <option integrator="implicitfast" cone="elliptic" impratio="100" />
-
   <visual>
     <global ellipsoidinertia="true" />
   </visual>
@@ -67,7 +65,7 @@
   </asset>
 
   <worldbody>
-    <body name="Z-BOT2_MASTER-BODY-SKELETON" pos="0.00000000 0.00000000 0.41738402" childclass="robot">
+    <body name="Z-BOT2_MASTER-BODY-SKELETON" pos="0.00000000 0.00000000 0.41738402" euler="0 0 -1.5707963" childclass="robot">
       <freejoint name="floating_base" />
       <geom name="Z-BOT2_MASTER-BODY-SKELETON_collision" type="mesh" mesh="Z-BOT2_MASTER-BODY-SKELETON.collision.stl" class="collision" />
       <geom name="Z-BOT2_MASTER-BODY-SKELETON_visual" material="Z-BOT2_MASTER-BODY-SKELETON_material" type="mesh" mesh="Z-BOT2_MASTER-BODY-SKELETON.stl" class="visual" />

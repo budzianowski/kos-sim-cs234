@@ -1,5 +1,16 @@
-<?xml version="1.0" ?>
 <robot name="z-bot2_fe_urdf">
+  <link name="base">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.001" />
+      <inertia ixx="0.000001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.000001" />
+    </inertial>
+  </link>
+  <joint name="floating_base" type="fixed">
+    <origin rpy="0 0 -1.5707963" xyz="0 0 0" />
+    <parent link="base" />
+    <child link="Z-BOT2_MASTER-BODY-SKELETON" />
+  </joint>
   <joint name="imu" type="fixed">
     <origin xyz="0.041000 0.010001 -0.030001" rpy="1.570000 0 -1.570000"/>
     <parent link="Z-BOT2_MASTER-BODY-SKELETON"/>
