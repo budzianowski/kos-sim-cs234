@@ -85,18 +85,52 @@ async def simple_walking(
     """
     assert len(default_position) == len(ACTUATOR_LIST)
 
-    # model_path = Path(model_path)
-    # if not model_path.exists():
-    #     raise FileNotFoundError(f"Model file not found: {model_path}")
+    model_path = Path(model_path)
+    if not model_path.exists():
+        raise FileNotFoundError(f"Model file not found: {model_path}")
 
-    # session = ort.InferenceSession(model_path)
+    session = ort.InferenceSession(model_path)
+    print([inp.name for inp in session.get_inputs()])
 
     # Get input and output details
-    # output_details = [{"name": x.name, "shape": x.shape, "type": x.type} for x in session.get_outputs()]
+    output_details = [{"name": x.name, "shape": x.shape, "type": x.type} for x in session.get_outputs()]
+    print(output_details)
 
-    # def policy(input_data: dict[str, np.ndarray]) -> dict[str, np.ndarray]:
-    #     results = session.run(None, input_data)
-    #     return {output_details[i]["name"]: results[i] for i in range(len(output_details))}
+    def policy(input_data: dict[str, np.ndarray]) -> dict[str, np.ndarray]:
+
+        # Extract base angular velocity -  use zeros as we don't have access to this
+        base_ang_vel = np.zeros(3, dtype=np.float32)
+        
+        # Extract projected gravity from input data
+        projected_gravity = input_data["projected_gravity.1"]
+        
+        # Extract command velocities
+        commands = np.concatenate([
+            input_data["x_vel.1"],
+            input_data["y_vel.1"],
+            input_data["rot.1"]
+        ])
+        
+        # Create combined observation vector matching the expected format from training
+        obs = np.concatenate([
+            base_ang_vel,                 # 3: base angular velocity (zeros)
+            projected_gravity,            # 3: projected gravity
+            commands,                     # 3: [x_vel, y_vel, rot]
+            input_data["dof_pos.1"],      # 10: joint positions
+            input_data["dof_vel.1"],      # 10: joint velocities
+            input_data["prev_actions.1"]  # 10: previous actions
+        ]).reshape(1, -1).astype(np.float32)  # Reshape to [1, 39] for batch dimension
+        
+        # Run inference with the combined observation tensor
+        results = session.run(None, {"obs": obs})
+        
+        # Create the output dictionary expected by walking.py
+        # The model only outputs 'actions', so I duplicate it for actions_scaled and use the input buffer for x.3
+        return {
+            "actions": results[0],                       # Raw actions from model
+            "actions_scaled": results[0],                # Same as actions
+            "x.3": input_data["buffer.1"]                # Pass through buffer
+        }
 
     async with KOS(ip=host, port=port) as sim_kos:
         for actuator in ACTUATOR_LIST:
@@ -171,10 +205,10 @@ async def simple_walking(
             input_data["projected_gravity.1"] = gvec.astype(np.float32)
             input_data["buffer.1"] = hist_obs.astype(np.float32)
 
-            # # policy_output = policy(input_data)
-            # positions = policy_output["actions_scaled"]
-            # curr_actions = policy_output["actions"]
-            # hist_obs = policy_output["x.3"]
+            policy_output = policy(input_data)
+            positions = policy_output["actions_scaled"]
+            curr_actions = policy_output["actions"]
+            hist_obs = policy_output["x.3"]
             curr_actions = np.zeros(10)
             prev_actions = curr_actions
             positions = curr_actions
