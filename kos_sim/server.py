@@ -180,13 +180,13 @@ async def serve(
     #         get_model_metadata(api, model_name),
     #     )
     # TODO: remove this:
-    model_dir = Path("/Users/pfb30/.kscale/robots/zbot-v2-fixed/robot")
-    model_path = Path("/Users/pfb30/kos-sim/.kos-sim/zbot-v2-fixed/metadata.json")
+    model_dir = Path("/Users/manoloalvarez/playground/Minimal-Locomotion/kos-sim-cs234/assets/zbot-v2-fixed/robot")
+    model_path = Path("/Users/manoloalvarez/playground/Minimal-Locomotion/kos-sim-cs234/.kos-sim/zbot-v2-fixed/metadata.json")
     model_metadata = RobotURDFMetadataOutput.model_validate_json(model_path.read_text())
     model_path = next(
         itertools.chain(
             model_dir.glob("*.mjcf"),
-            model_dir.glob("*.xml"),
+            model_dir.glob("*.urdf"),
         )
     )
 
